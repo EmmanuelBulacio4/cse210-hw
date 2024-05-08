@@ -16,11 +16,11 @@ class Program
         job2._startYear = 2011;
         job2._endYear = 2025;
 
+        Resume myResume = new Resume();
+        myResume._namePerson = "Emmanuel Bulacio";
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
 
+        myResume.Display();
     }
-}
-
-public class Resume
-{
-
 }
