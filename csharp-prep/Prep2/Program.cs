@@ -42,7 +42,7 @@ class Program
 
     if(letter != "A" && letter != "F")
     {
-        if (valueToSign <= 3)
+        if (valueToSign < 3)
         {
             sign = "-";
         }
@@ -56,7 +56,7 @@ class Program
     }
     else if (letter == "A")
     {
-        if (valueToSign <= 3)
+        if (valueToSign < 3)
         {
             sign = "-";
         }
