@@ -1,21 +1,22 @@
+using System.IO; 
 public class Journal
 {
-    public List<string> _entries = new List<string>();
+    public List<Entry> _entries;
 
-    static void AddEntry()
+    public void AddEntry(Entry newEntry)
     {
 
     }
 
-    static void DisplayAll()
+    public void DisplayAll()
     {
 
     }
 
-    static void SaveToFile(string file)
+    public void SaveToFile(string file) //Verificar!!!!
     {
 
-    }
+    } 
 
     static void LoadFromFile(string file)
     {

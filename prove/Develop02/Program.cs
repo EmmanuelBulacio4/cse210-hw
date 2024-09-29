@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 class Program
 {
@@ -15,28 +16,18 @@ class Program
             
             if (_election == 1) //Write an entry
             {
-                    //Muestro una _prompt del GetPromptGEnerator
-                    //Pido la respuesta del usuario
-                    //Agrego a una lista
-                Console.Write("You choose option 1!");
+
             }   
             else if (_election == 2) //Display the entry
             {
-                Console.Write("You choose option 2!");
+                //Entry.Display();
             }
             else if (_election == 3) //Load the txt file.
             {
-                    //ask for the file name.
-                    //save the name in a variable.
-                    //The algorithm to save the data in a variable. 
                 Console.Write("You choose option 3!");
             }
             else if(_election == 4) //Save your entries
             {
-                 //ask for the file name.
-                //save the name in a variable.
-                //The algorithm to save the data in the txt file.
-                //Format ($"{date} - {Prompt} - {answer}")
                 Console.Write("You choose option 4!");
             }
             else
