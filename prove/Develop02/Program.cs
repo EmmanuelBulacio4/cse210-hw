@@ -5,6 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Journal theJournal = new Journal();
+        Entry anEntry = new Entry();
+
         Console.WriteLine("Welcome to the Journal Program!");
         bool _loop = true;
 
@@ -16,7 +19,7 @@ class Program
             
             if (_election == 1) //Write an entry
             {
-
+                theJournal._entries.Add(anEntry); //Agrega una entrada al journal.
             }   
             else if (_election == 2) //Display the entry
             {

@@ -5,15 +5,15 @@ public class Journal
 
     public void AddEntry(Entry newEntry)
     {
-
+        _entries.Add(newEntry);
     }
 
     public void DisplayAll()
     {
-
+        //bucle para mostrar todas las entradas. Llama al Entry.Display(); en cada ciclo.
     }
 
-    public void SaveToFile(string file) //Verificar!!!!
+    public void SaveToFile(string file)
     {
 
     } 
@@ -22,4 +22,4 @@ public class Journal
     {
 
     }
-}
+} 
