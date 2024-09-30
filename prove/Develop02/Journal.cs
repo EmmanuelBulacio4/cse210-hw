@@ -10,7 +10,10 @@ public class Journal
 
     public void DisplayAll()
     {
-        //bucle para mostrar todas las entradas. Llama al Entry.Display(); en cada ciclo.
+        foreach(Entry i in _entries)
+        {
+            Console.WriteLine(i);
+        }
     }
 
     public void SaveToFile(string file)
