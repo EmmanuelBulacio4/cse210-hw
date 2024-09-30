@@ -2,7 +2,7 @@ using System.Diagnostics.Metrics;
 
 public class PrompGenerator
 {
-    public string GetRamdomPrompt()
+    public static string GetRamdomPrompt()
     {
         List<string> prompts = [
         "Who was the most interesting person I interacted with today?", 
@@ -10,7 +10,14 @@ public class PrompGenerator
         "What was the strongest emotion I felt today?", 
         "If I had one thing I could do over today, what would it be?"];
         
-        
-        return "";
+        // Random object
+        Random rnd = new Random();
+
+        // Get random index
+        int index = rnd.Next(prompts.Count);
+
+        // Print random fruit
+        string election = prompts[index];
+        return election;
     }
 }
