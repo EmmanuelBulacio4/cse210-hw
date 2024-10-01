@@ -3,53 +3,25 @@ public class Fraction
     private int _top;
     private int _bottom;
 
-    public void fraction()
-    {
-        Console.WriteLine("1/1");
-    }
-
-    Fraction (int wholeNumber)
-    {
-        _top = wholeNumber;
-    }
-
-    Fraction (int top, int bottom)
-    {
-        _top = top;
-        _bottom = bottom;
-    }
-
     public Fraction()
     {
+        _top = 1;
+        _bottom = 1;
+        Console.WriteLine($"{_top}/{_bottom}");
     }
 
-    public int GetTop()
-    {
-        return _top;
-    }
-
-    public void SetTop(int top)
+    public Fraction(int top)
     {
         _top = top;
+        _bottom = 1;
+        Console.WriteLine($"{_top}/{_bottom}");
     }
 
-    public int GetBottom ()
+    public Fraction(int top, int bottom)
     {
-        return _bottom;
-    }
-
-    public void SetBottom(int bottom)
-    {
+        _top = top;
         _bottom = bottom;
+        Console.WriteLine($"{_top}/{_bottom}");
     }
 
-    public int GetFractionString()
-    {
-        return 1; //tengo que completar este method.
-    }
-
-    public int GetDecimalValue(double decNumber)
-    {
-        return 1; //Evaluar como hacer esto
-    }
 }
