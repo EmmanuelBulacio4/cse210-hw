@@ -9,7 +9,7 @@ class Program
         
         //I have to intance _entries
         
-        Entry anEntry = new Entry();
+        Entry _entry = new Entry();
 
 
         DateTime theCurrentTime = DateTime.Now;
@@ -27,16 +27,16 @@ class Program
             if (_election == 1) //Write an entry
             {
                 string question = PrompGenerator.GetRamdomPrompt(); //It renders on console.
-                Console.WriteLine(question);
                 Console.Write("Write your answer: "); //It renders on console.
                 string answer = Console.ReadLine();
                 
                 //Add an entry to the journal.
-                theJournal._entry.Add(_entry); 
+                theJournal.AddEntry(dateText, question, answer);
+                //theJournal._entry.Add(_entry); 
             }   
             else if (_election == 2) //Display the entry
             {
-                anEntry.Display();
+                theJournal.DisplayAll();
             }
             else if (_election == 3) //Load the txt file.
             {

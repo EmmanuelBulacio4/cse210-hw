@@ -3,12 +3,12 @@ public class Journal
 {
     public List<Entry> _entry = new List<Entry>();
 
-    public void AddEntry(Entry string dateText, string question, string answer)
+    public void AddEntry(string dateText, string question, string answer)
     {
-        Entry _entry = new Entry();
-                _entry._date = dateText;
-                _entry._entryText = answer;
-                _entry._promptText = question; 
+        Entry _entry = new();
+            _entry._date = dateText;
+            _entry._entryText = answer;
+            _entry._promptText = question; 
 
     }
 
@@ -16,7 +16,7 @@ public class Journal
     {
         foreach(Entry i in _entry)
         {
-            DisplayAll();
+            Console.WriteLine($"{_entry}");
         }
     }
 
