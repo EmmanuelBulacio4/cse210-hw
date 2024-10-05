@@ -10,7 +10,7 @@ class Program
         //I have to intance _entries
         
         Entry anEntry = new Entry();
-        List<Entry> _entries = new(); //Esto no cambió nada.
+
 
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
@@ -30,14 +30,9 @@ class Program
                 Console.WriteLine(question);
                 Console.Write("Write your answer: "); //It renders on console.
                 string answer = Console.ReadLine();
-
-                //Create a new entry to the journal.
-                anEntry._date = dateText;
-                anEntry._entryText = answer;
-                anEntry._promptText = question; 
                 
                 //Add an entry to the journal.
-                theJournal._entries.Add(anEntry); 
+                theJournal._entry.Add(_entry); 
             }   
             else if (_election == 2) //Display the entry
             {

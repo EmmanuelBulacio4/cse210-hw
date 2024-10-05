@@ -1,16 +1,20 @@
 using System.IO; 
 public class Journal
 {
-    public List<Entry> _entries;
+    public List<Entry> _entry = new List<Entry>();
 
-    public void AddEntry(Entry newEntry)
+    public void AddEntry(Entry string dateText, string question, string answer)
     {
-        _entries.Add(newEntry);
+        Entry _entry = new Entry();
+                _entry._date = dateText;
+                _entry._entryText = answer;
+                _entry._promptText = question; 
+
     }
 
     public void DisplayAll()
     {
-        foreach(Entry i in _entries)
+        foreach(Entry i in _entry)
         {
             DisplayAll();
         }
