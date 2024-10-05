@@ -5,16 +5,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Star a new JOurnal
         Journal theJournal = new Journal();
-        
-        //I have to intance _entries
-        
-        Entry _entry = new Entry();
 
-
+        //Date
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
 
+        //Start the program on console
         Console.WriteLine("Welcome to the Journal Program!");
         
         bool _loop = true;
@@ -31,8 +29,7 @@ class Program
                 string answer = Console.ReadLine();
                 
                 //Add an entry to the journal.
-                theJournal.AddEntry(dateText, question, answer);
-                //theJournal._entry.Add(_entry); 
+                theJournal.AddEntry(dateText, question, answer); 
             }   
             else if (_election == 2) //Display the entry
             {

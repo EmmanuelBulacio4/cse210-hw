@@ -16,7 +16,8 @@ public class Journal
     {
         foreach(Entry i in _entry)
         {
-            Console.WriteLine($"{_entry}");
+            Console.WriteLine(i); 
+            //Console.WriteLine($"{_entry[0]} - {_entry[1]} - {_entry[2]}");
         }
     }
 
