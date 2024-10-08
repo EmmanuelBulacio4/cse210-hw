@@ -5,12 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Star a new JOurnal
+        //Star a new Journal
         Journal theJournal = new Journal();
-
-        //Date
-        DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
 
         //Start the program on console
         Console.WriteLine("Welcome to the Journal Program!");
@@ -25,23 +21,19 @@ class Program
             if (_election == 1) //Write an entry
             {
                 string question = PrompGenerator.GetRamdomPrompt(); //It renders on console.
-                Console.Write("Write your answer: "); //It renders on console.
-                string answer = Console.ReadLine();
-                
-                //Add an entry to the journal.
-                theJournal.AddEntry(dateText, question, answer); 
+                theJournal.AddEntry(question);
             }   
-            else if (_election == 2) //Display the entry
+            else if (_election == 2)
             {
                 theJournal.DisplayAll();
             }
             else if (_election == 3) //Load the txt file.
             {
-                
+                //theJournal.LoadFromFile();
             }
             else if(_election == 4) //Save your entries
             {
-                Console.Write("You choose option 4!");
+                //theJournal.SaveToFile();
             }
             else
             {

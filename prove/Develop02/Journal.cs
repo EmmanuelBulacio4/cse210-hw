@@ -1,25 +1,30 @@
+using System.Formats.Asn1;
 using System.IO; 
 public class Journal
 {
-    public List<Entry> _entry = new List<Entry>();
-
-    public void AddEntry(string dateText, string question, string answer)
+    public List<Entry> entries;
+    
+    public Journal()
     {
-        Entry _entry = new();
-            _entry._date = dateText;
-            _entry._entryText = answer;
-            _entry._promptText = question; 
+        entries = new List<Entry>();
+    }
+
+    public void AddEntry(string prompt)
+    {
+        Console.WriteLine(prompt + " ");
+        string _answer = Console.ReadLine();
+        string date = DateTime.Now.ToString("MM/dd/yyy");
+        entries.Add(new Entry(prompt, _answer, date));
 
     }
 
-    public void DisplayAll()
-    {
-        foreach(Entry i in _entry)
+     public void DisplayAll()
         {
-            Console.WriteLine(i); 
-            //Console.WriteLine($"{_entry[0]} - {_entry[1]} - {_entry[2]}");
+            foreach (Entry entry in entries)
+            {
+                Console.WriteLine(entry.ToString());
+            }
         }
-    }
 
     public void SaveToFile(string file)
     {
@@ -28,10 +33,12 @@ public class Journal
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("This will be the first line in the file.");
+            outputFile.WriteLine("Date, Prompt, Answer");
             // You can use the $ and include variables just like with Console.WriteLine
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
+            foreach (Entry entry in entries)
+            {
+                outputFile.WriteLine($"");
+            }
         }
     } 
 
@@ -50,4 +57,4 @@ public class Journal
             string answer = parts[2];
         }
     }
-} 
+}  
