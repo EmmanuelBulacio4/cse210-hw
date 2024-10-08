@@ -1,3 +1,5 @@
+using System.Dynamic;
+
 public class Entry
 {
     public string _date;
@@ -16,8 +18,23 @@ public class Entry
     }
 
      public override string ToString()
-        {
-            return $"{_date} - {_promptText} - {_answer}";
-        }
+    {
+        return $"{_date} - {_promptText} - {_answer}";
+    }
+
+    public string GetDate()
+    {
+        return _date;
+    }
+
+    public string GetPrompt()
+    {
+        return _promptText;
+    }
+
+    public string GetAnswer()
+    {
+        return _answer;
+    }
 
 }

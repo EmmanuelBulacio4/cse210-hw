@@ -26,35 +26,46 @@ public class Journal
             }
         }
 
-    public void SaveToFile(string file)
+    public void SaveToFile()
     {
-        string fileName = "myFile.txt";
+        Console.WriteLine("Enter the filename; ");
+        string fileName = Console.ReadLine();
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter saveToFile = new StreamWriter(fileName))
         {
             // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("Date, Prompt, Answer");
+            saveToFile.WriteLine("Date, Prompt, Answer");
             // You can use the $ and include variables just like with Console.WriteLine
             foreach (Entry entry in entries)
             {
-                outputFile.WriteLine($"");
+                saveToFile.WriteLine($"{entry.GetDate()},{entry.GetPrompt()},{entry.GetAnswer()}");
             }
         }
     } 
 
-    public void LoadFromFile(string file)
+    public void LoadFromFile()
     {
         Console.WriteLine("Write the name of the .txt file");
         string filename = Console.ReadLine();
-        string[] lines = File.ReadAllLines(filename);
+        entries.Clear();
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
+        using (StreamReader reader = new StreamReader(filename))
+            {
+                string headerLine = reader.ReadLine(); // It discard the header line
 
-            string date = parts[0];
-            string prompt = parts[1];
-            string answer = parts[2];
-        }
+                while (!reader.EndOfStream)
+                {
+                    string entryLine = reader.ReadLine();
+                    string[] fields = entryLine.Split(',');
+
+                    string date = fields[0];
+                    string prompt = fields[1].Replace(",,", ",");
+                    string response = fields[2].Replace(",,", ",");
+
+                    entries.Add(new Entry(prompt, response, date));
+                }
+            }
+
+            Console.WriteLine("File Loaded succesfully");
     }
 }  

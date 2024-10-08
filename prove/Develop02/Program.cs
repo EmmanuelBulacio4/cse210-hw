@@ -20,7 +20,7 @@ class Program
             
             if (_election == 1) //Write an entry
             {
-                string question = PrompGenerator.GetRamdomPrompt(); //It renders on console.
+                string question = PrompGenerator.GetRamdomPrompt();
                 theJournal.AddEntry(question);
             }   
             else if (_election == 2)
@@ -29,7 +29,7 @@ class Program
             }
             else if (_election == 3) //Load the txt file.
             {
-                //theJournal.LoadFromFile();
+                theJournal.LoadFromFile();
             }
             else if(_election == 4) //Save your entries
             {
