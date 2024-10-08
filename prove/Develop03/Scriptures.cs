@@ -15,10 +15,7 @@ class Scriptures
         {
             _words.Add(new Word(word));
         }
-
-
     }
-
     public void HideRandomWords(int numberToHide)
     {
         Console.WriteLine($"{_reference}:");
