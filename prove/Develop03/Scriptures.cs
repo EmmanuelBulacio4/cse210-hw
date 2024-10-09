@@ -20,6 +20,7 @@ class Scriptures
     {
         Console.WriteLine($"{_reference}:");
         
+        
     }
 
     public string GetDisplayText()
