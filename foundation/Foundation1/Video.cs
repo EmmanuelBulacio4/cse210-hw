@@ -1,24 +1,22 @@
 using System;
-
 public class Video
 {
-    private string _title;
-    private string _creator;
-    private int _length;
+    public string _title;
+    public string _creator;
+    public int _lenght;
 
-    private List<Video> _video;
+    public List<Comment> _comments = new List<Comment>();
 
-    private List<Comment> _comments;
-    
-    public Video
+    public string AddComment(string person, string text)
     {
-
+        _comments.Add(person, text)
     }
 
-    public int CommentsCounter(_comments)
+    public void Display()
     {
-        int numberOfComments = _comments.count();
-        return numberOfComments;
+        Console.WriteLine($"Name: {_title}n\Author: {_creator}n\Lenght: {_lenght} seg");
+        Console.WriteLine("Comments: ")
     }
-    
+        
+        
 }
