@@ -7,16 +7,36 @@ public class Video
 
     public List<Comment> _comments = new List<Comment>();
 
-    public string AddComment(string person, string text)
+    public Video()
     {
-        _comments.Add(person, text)
+    }
+    
+    public void AddComment(Comment comment)
+    {
+        _comments.Add(comment);
+    }
+
+    public int CountComments()
+    {
+        int counter = 0;
+        counter = _comments.Count();
+        return counter;
     }
 
     public void Display()
     {
-        Console.WriteLine($"Name: {_title}n\Author: {_creator}n\Lenght: {_lenght} seg");
-        Console.WriteLine("Comments: ")
-    }
-        
-        
+        Console.WriteLine("************************************************************************");
+        Console.WriteLine($"Name: {_title} | Author: {_creator} | Lenght: {_lenght} seg");
+        int commentCounter = CountComments();
+        Console.WriteLine($"There are {commentCounter} comments.");
+        Console.WriteLine("Comments: ");
+    } 
+
+    public void GetVideoComment()
+    {
+        foreach (Comment comment in _comments)
+        {
+            Console.WriteLine($"{comment.GetPersonName()}: {comment._commentText} ");
+        }
+    }  
 }

@@ -6,17 +6,19 @@ public class Comment
     public string _commentText;
 
 
-    public Comment()
+    public Comment(string commenter, string text)
     {
-        _personName = "Unknown";
-        _commentText = "couldn't get comment."
+        _personName = commenter;
+        _commentText = text;
     }
-        
-    public void GetVideoComment()
+
+    public string GetPersonName()
     {
-        foreach (Comment comentario in _comments)
-        {
-            Console.WriteLine($"Person: {_pesonName}n\Comment: {_commentText}")
-        }
+        return _personName;
     }
-    } 
+
+    public string GetCommentText()
+    {
+        return _commentText;
+    }
+} 
