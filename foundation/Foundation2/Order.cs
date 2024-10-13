@@ -58,29 +58,4 @@ public class Order
         Console.WriteLine($"{_customer.GetCustumerAddress()}");
     }
 
-    // public string GenerateTotalCost()
-    // {
-    //     string totalCost = "\nProducts:\n";
-    //     double totalPrice = CalculateTotalPrice();
-    //     foreach (Product p in _products) 
-    //     {
-    //         totalCost += p.GetName() + " (" + p.GetProductID() + ") - " + "$" + p.GetPrice() + " x " + p.GetQuantity() + " = " + p.CalculatePrice() + "\n";
-    //     }
-        
-    //     totalCost += "Shipping Cost: $" + CalculateShipping() + "\n";
-    //     totalCost += "Total: $" + CalculateTotalPrice();
-        
-    //     return totalCost;
-    // }
-
-    // public void DisplayResults()
-    // {
-    //     string packingLabel = GeneratePackingLabel();
-    //     string shippingLabel = GenerateShippingLabel();
-    //     string totalCost = GenerateTotalCost();
-
-    //     Console.WriteLine(packingLabel);
-    //     Console.WriteLine(shippingLabel);
-    //     Console.WriteLine(totalCost);
-    // }
 }
