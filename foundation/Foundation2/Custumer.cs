@@ -2,22 +2,22 @@ using System;
 
 public class Customer
 {
-    private string _custumerName;
-    private Address _custumerAddress;
+    private string _customerName;
+    private Address _customerAddress;
 
     public Customer(string name, Address address)
     {
-        _custumerName = name;
-        _custumerAddress = address;
+        _customerName = name;
+        _customerAddress = address;
     }
     public string GetName()
     {
-        return _custumerName;
+        return _customerName;
     }
 
     public bool ItIsFromUSA()
     {
-        if (_custumerAddress.FromUSA())
+        if (_customerAddress.FromUSA())
         {
             return true;
         }
@@ -27,8 +27,8 @@ public class Customer
         }
     }
 
-    public Address GetCustumerAddress()
+    public string GetCustumerAddress()
     {
-        return _custumerAddress;
+        return _customerAddress.GetAddress();
     }
     }
