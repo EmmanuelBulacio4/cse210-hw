@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks.Dataflow;
 
 class Program
 {
@@ -20,6 +21,11 @@ class Program
         MathAssignment math1 = new MathAssignment("Emmanuel Bulacio", "Divisions", "7.9", "5 - 254");
         Console.WriteLine(math1.GetSumary());
         Console.WriteLine(math1.GetHomeworkList());
+
+        //Test WritingAssignment
+        WritingAssignment write1 = new WritingAssignment("Emmanuel Bulacio", "French Revolution", "Main characters");
+        Console.WriteLine(write1.GetSumary());
+        Console.WriteLine(write1.GetWritingInformation());
 
 
     }
