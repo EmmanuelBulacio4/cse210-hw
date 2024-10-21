@@ -18,6 +18,11 @@ public class Activity  //This is the base class!
         _name = name;
     }
 
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
+
     public void SetDuration(int duration)
     {
         _duration = duration;
