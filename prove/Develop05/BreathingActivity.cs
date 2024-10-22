@@ -8,29 +8,29 @@ public class BreathingActivity : Activity
 
     public void Run()
     {
-        Console.Clear();
-        Console.WriteLine($"Welcome to the {GetName()}.\n");
-        Console.WriteLine(GetDescription());
-        
-        Console.WriteLine("How long, in seconds, would you like for your session? ");
-        SetDuration(int.Parse(Console.ReadLine()));
-
-        Console.WriteLine("Get Ready...\n");
-        ShowSpinner(4);
-        Thread.Sleep(2000);
-
-        int timer = 0;
-
-        while (GetDuration()> timer)
-        {
-            Console.WriteLine($"Breath in{ShowCountDown}");
-            
-        }
+        DisplayStartingMessage();
+        DisplayDurationTime();
+        GetReady();
 
         //Metodos para mostrar mensajes de breath in y bread out
-    //Debe contener una cuenta regresiva
+        //Debe contener una cuenta regresiva
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+
+        while (DateTime.Now> endTime)
+        {
+            Activity breathing = new Activity();
+            Console.WriteLine($"Breath in");
+            ShowCountDown(3);
+
+            Console.WriteLine("Breath out...");
+            ShowCountDown(6);
+            Console.WriteLine("\n");
+
+        }
 
 
-    //Mensaje de salida.
+        //Mensaje de salida.
+        DisplayEndingMessage();
     }
 }

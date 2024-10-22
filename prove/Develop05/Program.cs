@@ -12,11 +12,17 @@ class Program
 
             if (election == 1)
             {
-                
+                BreathingActivity breath = new BreathingActivity();
+
+                breath.DisplayStartingMessage();
+
+                breath.GetReady();
+
+                breath.Run();
             }
             else if (election == 2)
             {
-                Console.WriteLine("Option 2");
+                
             }
             else if(election == 3)
             {

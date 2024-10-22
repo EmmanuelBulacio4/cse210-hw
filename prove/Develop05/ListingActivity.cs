@@ -1,7 +1,7 @@
 using System;
 public class ListingActivity
 {
-    private int _count;
+    //private int _count;
     private List<string> _prompts = new List<string>();
 
     public ListingActivity()

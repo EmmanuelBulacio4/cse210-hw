@@ -1,12 +1,11 @@
 using System;
 using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Reflection;
 public class Activity  //This is the base class!
 {
     private string _name;
     private string _description;
     private int _duration;
+    private double _timing;
 
     public Activity()
     {
@@ -47,7 +46,22 @@ public class Activity  //This is the base class!
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine(""); // Don´t forget to write the message!
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {GetName()}.\n");
+        Console.WriteLine(GetDescription());
+    }
+
+    public void DisplayDurationTime()
+    {
+        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        SetDuration(int.Parse(Console.ReadLine()));
+    }
+
+    public void GetReady()
+    {
+        Console.WriteLine("\nGet Ready...\n");
+        ShowSpinner(3);
+        Thread.Sleep(1500);
     }
 
     public void DisplayEndingMessage()
@@ -56,49 +70,51 @@ public class Activity  //This is the base class!
         ShowSpinner(3);
     }
 
-    public void ShowSpinner(int duration)
+    public void ShowSpinner(int lapse)
     {    
-        _duration = duration;
+        _timing = lapse;
         List<string> animation = ["|", "/", "-", "\\", "|", "/", "-", "\\",];
 
-        DateTime StartTime = DateTime.Now;
-        DateTime endTime = StartTime.AddSeconds(_duration);
+        DateTime StartTime = DateTime.Now; //This variable is static, it doesnt change. It is usefull in order to set the endTime only.
+        DateTime endTime = StartTime.AddSeconds(_timing);
 
         int i = 0;
 
-        while (StartTime < endTime)
+        do
         {
             string s = animation[i];
             Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
             
+            StartTime.AddSeconds(1);
             i++;
 
             if (i >= animation.Count)
             {
                 i = 0;
             }
-        }
+        }while (DateTime.Now < endTime); //With the DateTime.Now the time is actualizing every minute so it makes the loop finishes when the endTime is reached.
     }
 
-    public void ShowCountDown()
+    public void ShowCountDown(int lapse)
     {
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
+        DateTime endTime = startTime.AddSeconds(lapse);
 
         
-        while (endTime > startTime)
+        while (DateTime.Now < endTime)
         {
-            for (int i = _duration; i>0; i--)
-            {
-                Console.Write(".");
-                Thread.Sleep(1000);
-                if (i==3)
-                {
-                    Console.Write("\b\b\b");
-                }
-            }
+            // Mostrar el número de segundos restantes
+            Console.Write(lapse);
+        
+            Thread.Sleep(1000);  // Esperar 1 segundo
+
+            lapse--;  // Reducir el valor de lapse en cada iteración
+
+            // Borrar el número mostrado antes de imprimir el siguiente
+            Console.Write("\b\b");  // Retroceder para sobrescribir el número
         }
+        Console.WriteLine();
     }
 }
