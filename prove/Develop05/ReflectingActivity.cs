@@ -1,8 +1,24 @@
 using System;
 public class ReflectingActivity : Activity
 {
-    //private List<string> _prompts;
-    //private List<string> _questions;
+    private List<string> _prompts = new List<string>
+        {
+        "Think of a time when you stood up for someone else.", 
+        "Think of a time when you did something really difficult.",
+        "Think of a time when you helped someone in need.", 
+        "Think of a time when you did something truly selfless."
+        };
+    private List<string> _questions = new List<string>
+    {
+        "Who was the most interesting person I interacted with today?", 
+        "What was the best part of my day?", "How did I see the hand of the Lord in my life today?",
+        "What was the strongest emotion I felt today?", 
+        "If I had one thing I could do over today, what would it be?",
+        "What was an important momento today and why?",
+        "Did you help out somebody today?",
+        "What is the most importan lesson you learnd?",
+        "What did you learn today and you like you children remember?"
+    };
 
     public ReflectingActivity()
     {
@@ -18,7 +34,7 @@ public class ReflectingActivity : Activity
 
         Console.Clear();
         DisplayPrompt();
-        ShowCountDown(10);
+        ShowCountDown(9);
         DisplayQuestions();
         ShowSpinner(10);
 
@@ -29,13 +45,7 @@ public class ReflectingActivity : Activity
 
     public string GetRandomPrompt()
     {
-        List<string> prompts = new List<string>
-        {
-        "Think of a time when you stood up for someone else.", 
-        "Think of a time when you did something really difficult.",
-        "Think of a time when you helped someone in need.", 
-        "Think of a time when you did something truly selfless."
-        };
+        List<string> prompts = _prompts;   
         
         Random rnd = new Random();
 
@@ -47,17 +57,7 @@ public class ReflectingActivity : Activity
 
     public string GetRandomQuestion()
     {
-        List<string> questions = new List<string>
-        {
-        "Who was the most interesting person I interacted with today?", 
-        "What was the best part of my day?", "How did I see the hand of the Lord in my life today?",
-        "What was the strongest emotion I felt today?", 
-        "If I had one thing I could do over today, what would it be?",
-        "What was an important momento today and why?",
-        "Did you help out somebody today?",
-        "What is the most importan lesson you learnd?",
-        "What did you learn today and you like you children remember?"
-        };
+        List<string> questions = _questions;
         
         Random rnd = new Random();
 
