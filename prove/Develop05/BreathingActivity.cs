@@ -17,9 +17,8 @@ public class BreathingActivity : Activity
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(GetDuration());
 
-        while (DateTime.Now> endTime)
+        while (DateTime.Now < endTime)
         {
-            Activity breathing = new Activity();
             Console.WriteLine($"Breath in");
             ShowCountDown(3);
 
@@ -28,8 +27,6 @@ public class BreathingActivity : Activity
             Console.WriteLine("\n");
 
         }
-
-
         //Mensaje de salida.
         DisplayEndingMessage();
     }

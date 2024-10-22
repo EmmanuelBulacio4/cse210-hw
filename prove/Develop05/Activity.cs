@@ -61,7 +61,7 @@ public class Activity  //This is the base class!
     {
         Console.WriteLine("\nGet Ready...\n");
         ShowSpinner(3);
-        Thread.Sleep(1500);
+        Thread.Sleep(1000);
     }
 
     public void DisplayEndingMessage()
