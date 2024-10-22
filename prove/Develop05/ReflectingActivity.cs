@@ -16,7 +16,15 @@ public class ReflectingActivity : Activity
         DisplayDurationTime();
         GetReady();
 
-        Console.WriteLine(GetRandomPrompt());
+        Console.Clear();
+        DisplayPrompt();
+        ShowCountDown(10);
+        DisplayQuestions();
+        ShowSpinner(10);
+
+        DisplayEndingMessage();
+
+
     }
 
     public string GetRandomPrompt()
