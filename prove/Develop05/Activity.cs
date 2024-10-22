@@ -68,6 +68,7 @@ public class Activity  //This is the base class!
     {
         Console.WriteLine("Well Done"); 
         ShowSpinner(3);
+        Console.WriteLine($"\nYou have completed {_duration} seconds of activity!!\n");
     }
 
     public void ShowSpinner(int lapse)

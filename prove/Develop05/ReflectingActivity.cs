@@ -40,7 +40,6 @@ public class ReflectingActivity : Activity
 
         DisplayEndingMessage();
 
-
     }
 
     public string GetRandomPrompt()
