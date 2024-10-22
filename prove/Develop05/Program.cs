@@ -22,7 +22,8 @@ class Program
             }
             else if (election == 2)
             {
-                
+                ReflectingActivity reflecting = new ReflectingActivity();
+                reflecting.Run();
             }
             else if(election == 3)
             {
