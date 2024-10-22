@@ -1,14 +1,13 @@
 using System;
-public class ListingActivity
+public class ListingActivity : Activity
 {
     //private int _count;
     private List<string> _prompts = new List<string>();
 
     public ListingActivity()
     {
-         Console.Clear();
-        Console.WriteLine("Welcome to the Listing Activity.\n");
-        Console.WriteLine("Mensaje de la listing Activity");
+        SetName("Welcome to the Listing Activity.");
+        SetDescription("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
     }
 
     public void Run()
