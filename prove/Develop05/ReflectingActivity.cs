@@ -6,12 +6,15 @@ public class ReflectingActivity : Activity
 
     ReflectingActivity()
     {
-
+        Console.Clear();
+        Console.WriteLine("Welcome to the Reflecting Activity.\n");
+        Console.WriteLine(".");
     }
 
     public void Run()
     {
-
+        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        int _duration = int.Parse(Console.ReadLine());
     }
 
     public string GetRandomPrompt()

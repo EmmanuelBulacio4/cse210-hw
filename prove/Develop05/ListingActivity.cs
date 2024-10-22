@@ -6,12 +6,15 @@ public class ListingActivity
 
     public ListingActivity()
     {
-
+         Console.Clear();
+        Console.WriteLine("Welcome to the Listing Activity.\n");
+        Console.WriteLine("Mensaje de la listing Activity");
     }
 
     public void Run()
     {
-
+        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        int _duration = int.Parse(Console.ReadLine());
     }
 
     public void GetRandomPrompt()

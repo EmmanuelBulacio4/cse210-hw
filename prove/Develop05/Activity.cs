@@ -10,7 +10,9 @@ public class Activity  //This is the base class!
 
     public Activity()
     {
-        //Create the constructor solo con el mensaje de bienvenida.
+        _name = "";
+        _description = "";
+        _duration = 30;
     }
 
     public void SetName(string name)
@@ -18,14 +20,29 @@ public class Activity  //This is the base class!
         _name = name;
     }
 
+    public string GetName()
+    {
+        return _name;
+    }
+
     public void SetDescription(string description)
     {
         _description = description;
     }
 
+    public string GetDescription()
+    {
+        return _description;
+    }
+
     public void SetDuration(int duration)
     {
         _duration = duration;
+    }
+
+    public int GetDuration()
+    {
+        return _duration;
     }
 
     public void DisplayStartingMessage()
@@ -35,11 +52,13 @@ public class Activity  //This is the base class!
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine(""); // Don´t forget to write the message!
+        Console.WriteLine("Well Done"); 
+        ShowSpinner(3);
     }
 
-    public void ShowSpinner()
-    {   
+    public void ShowSpinner(int duration)
+    {    
+        _duration = duration;
         List<string> animation = ["|", "/", "-", "\\", "|", "/", "-", "\\",];
 
         DateTime StartTime = DateTime.Now;
@@ -65,17 +84,20 @@ public class Activity  //This is the base class!
 
     public void ShowCountDown()
     {
-        DateTime StartTime = DateTime.Now;
-        DateTime endTime = StartTime.AddSeconds(_duration);
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
 
-        for (int i = _duration; i>0; i--)
+        
+        while (endTime > startTime)
         {
-            Console.Write(".");
-            Thread.Sleep(1000);
-
-            if (i==3)
+            for (int i = _duration; i>0; i--)
             {
-                Console.Write("\b\b\b");
+                Console.Write(".");
+                Thread.Sleep(1000);
+                if (i==3)
+                {
+                    Console.Write("\b\b\b");
+                }
             }
         }
     }

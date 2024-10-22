@@ -12,9 +12,7 @@ class Program
 
             if (election == 1)
             {
-                Console.Clear();
-                //Mensaje de Bienvenida del BReathing.
-                Console.WriteLine("Option 1");
+                
             }
             else if (election == 2)
             {
