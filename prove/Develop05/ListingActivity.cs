@@ -2,7 +2,14 @@ using System;
 public class ListingActivity : Activity
 {
     //private int _count;
-    private List<string> _prompts = new List<string>();
+    private List<string> _prompts = new List<string>
+        {
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?",
+        "When have you felt the Holy Ghost this month?",
+        "Who are some of your personal heroes?"
+        };
 
     public ListingActivity()
     {
@@ -12,13 +19,28 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        Console.WriteLine("How long, in seconds, would you like for your session? ");
-        int _duration = int.Parse(Console.ReadLine());
+        DisplayStartingMessage();
+        DisplayDurationTime();
+        GetReady();
+
+        
     }
 
-    public void GetRandomPrompt()
+    public string GetRandomPrompt()
     {
+        List<string> prompts = _prompts;   
+        
+        Random rnd = new Random();
 
+        int index = rnd.Next(prompts.Count);
+
+        string prompt = prompts[index];
+        return prompt;
+    }
+
+    public string GetPrompt()
+    {
+        return GetRandomPrompt();
     }
 
     // public List<string> GetListFromUser()
