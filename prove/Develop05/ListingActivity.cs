@@ -1,7 +1,7 @@
 using System;
 public class ListingActivity : Activity
 {
-    //private int _count;
+    private int _count;
     private List<string> _prompts = new List<string>
         {
         "Who are people that you appreciate?",
@@ -22,6 +22,8 @@ public class ListingActivity : Activity
         DisplayStartingMessage();
         DisplayDurationTime();
         GetReady();
+        GetListFromUser();
+        
 
         
     }
@@ -43,9 +45,25 @@ public class ListingActivity : Activity
         return GetRandomPrompt();
     }
 
-    // public List<string> GetListFromUser()
-    // {
-    //     retur
-    // }
+    public void GetListFromUser()
+    {
+        string prompt = GetPrompt();
 
+        Console.WriteLine();
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine($"--- {prompt} ---");
+        Console.Write("You may begin in: ");
+        ShowCountDown(5);
+        Console.WriteLine();
+        
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+
+        while (startTime <= endTime)
+        {
+            Console.Write(">");
+            Console.ReadLine();
+            startTime = DateTime.Now;
+        }
+    }
 }

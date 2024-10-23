@@ -27,13 +27,13 @@ class Program
             }
             else if(election == 3)
             {
-                Console.WriteLine("Option 3");
+                ListingActivity listing = new ListingActivity();
+                listing.Run();
             }
             else
             {
                 mainLoop = false;
             }
-        }
-        
+        }  
     }
 } 
