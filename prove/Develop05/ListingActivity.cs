@@ -24,8 +24,20 @@ public class ListingActivity : Activity
         GetReady();
         GetListFromUser();
         
+        //Escribir frase de "Escribiste TANTAS frases en TANTOS segundos.
 
-        
+        //Mostrar mensaje final
+
+    }
+
+    public void SetCount(int count)
+    {
+        _count = count;
+    }
+
+    public int GetCount()
+    {
+        return _count;
     }
 
     public string GetRandomPrompt()
