@@ -24,9 +24,10 @@ public class ListingActivity : Activity
         GetReady();
         GetListFromUser();
         
-        //Escribir frase de "Escribiste TANTAS frases en TANTOS segundos.
-
+        //The activity them displays back the number of items that were entered.
+        Console.WriteLine($"You writed {GetCount()} in {GetDuration()} seconds!!");
         //Mostrar mensaje final
+        DisplayEndingMessage();
 
     }
 
@@ -76,6 +77,7 @@ public class ListingActivity : Activity
             Console.Write(">");
             Console.ReadLine();
             startTime = DateTime.Now;
+            _count++;
         }
     }
 }
