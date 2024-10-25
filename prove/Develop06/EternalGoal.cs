@@ -1,23 +1,12 @@
 using System;
 public class EternalGoal : Goal
 {
-    EternalGoal(string name, string description, string point) //CReo que aqui seria apropiado usar unos getters para estabrecer valosres...analizar!
+    EternalGoal(string name, string description, string point)  : base(name, description, point)
     {
         
     }
 
-    public void RecordEvent()
-    {
-
-    }
-
-    public bool isCompleted()
-    {
-        return false;
-    }
-
-    public string GetStringRepresentation()
-    {
-        return "";
-    }
+    //RecordEvent() esta heredado
+    //isCompleted() esta heredado
+    //GetStringRepresentation() esta heredado
 }

@@ -3,7 +3,7 @@ public class SimpleGoal : Goal
 {
     private bool _isCompleted;
 
-    SimpleGoal(string name, string description, string point)
+    SimpleGoal(string name, string description, string point) : base(name, description, point)
     {
         _isCompleted = false;
     }

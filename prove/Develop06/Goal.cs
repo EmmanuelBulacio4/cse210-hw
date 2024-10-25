@@ -5,12 +5,14 @@ public class Goal
     private string _description;
     private string _points;
 
-    Goal(string name, string description, string point)
+    protected Goal(string name, string description, string point)
     {
         _shortName = name;
         _description = description;
         _points = point;
     }
+
+    //Hacer tres GEtters para cada variable!
 
     public void RecordEvent()
     {

@@ -5,7 +5,7 @@ public class CheckListGoal : Goal
     private int _target;
     private int _bonus;
 
-    CheckListGoal(string name, string description, string points, int target, int bonus)
+    CheckListGoal(string name, string description, string point, int target, int bonus) : base(name, description, point)
     {
         _target = target;
         _bonus = bonus;
@@ -15,9 +15,9 @@ public class CheckListGoal : Goal
 
     //isComplete lo usa de la clase base
 
-    public override GetDetailsString()
+    public override string GetDetailString()
     {
-
+        return "";
     }
 
     //GetDetailsRepresentation tambien lo toma de la clase base.
