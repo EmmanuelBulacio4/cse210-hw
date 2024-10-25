@@ -8,15 +8,9 @@ public class SimpleGoal : Goal
         _isCompleted = false;
     }
 
-    public void RecordEvent()
-    {
+    //RecordEvent() lo hereda de la clase Goal.
 
-    }
-
-    public bool isCompleted()
-    {
-        return false;
-    }
+    //isCompleted() lo hereda de la clase Goal
 
     // public string GetStringRepresentation()
     // {
