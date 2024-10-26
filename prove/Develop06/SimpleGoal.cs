@@ -8,12 +8,17 @@ public class SimpleGoal : Goal
         _isCompleted = false;
     }
 
-    public void SetComletedGoal()
+    public override void SetCompletedGoal()
     {
         _isCompleted = true;
     }
 
-    public override void RecordEvent() //lo hereda de la clase Goal.
+    public bool GetCompletedGoal()
+    {
+        return _isCompleted;
+    }
+
+    public override void RecordEvent()
     {
         if (_isCompleted == false) {
             _isCompleted = true;
@@ -22,7 +27,10 @@ public class SimpleGoal : Goal
         }
     }
 
-    //isCompleted() lo hereda de la clase Goal
+    public void isCompleted() //lo hereda de la clase Goal
+    {
+        
+    }
 
     // public string GetStringRepresentation()
     // {

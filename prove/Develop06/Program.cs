@@ -15,8 +15,7 @@ class Program
             {
                 Console.WriteLine("Here you must write a new goal!\n");
                 List<Goal> goalsList = new List<Goal>();
-                Goal goal = new();
-                goalsList.Add(goal);
+                
             }   
             else if (_election == 2) //List Goals
             {

@@ -19,12 +19,14 @@ public class Goal
 
     public void SetGoal()
     {
+
         Console.WriteLine("What is the name of your goal? ");
         _shortName = Console.ReadLine();
         Console.WriteLine("Write a short description: ");
         _description = Console.ReadLine();
         Console.WriteLine("How many point do you set to this goal? ");
         _points = Console.ReadLine();
+        
     }
 
     //Getters
@@ -47,18 +49,17 @@ public class Goal
     public virtual void RecordEvent()
     {
         if (isCompleted() == false) {
-            SetCompltedGoal();
+            SetCompletedGoal();
         } else {
             Console.WriteLine("You have already completed this goal.");
         }
     }
 
-    public void SetCompltedGoal()
+    public virtual void SetCompletedGoal()
     {
-        
     }
 
-    public bool isCompleted()
+    public virtual bool isCompleted()
     {
         return false;
     }

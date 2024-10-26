@@ -9,7 +9,8 @@ public class GoalManager
 
     public void Start()
     {
-
+        Goal goal = new();
+        goal.SetGoal();
     }
 
     public void DisplayPlayerInfo()
