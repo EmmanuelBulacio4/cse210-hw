@@ -9,7 +9,10 @@ public class BreathingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        DisplayDurationTime();
+        
+        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        SetDuration(int.Parse(Console.ReadLine()));
+        
         GetReady();
 
         //Metodos para mostrar mensajes de breath in y bread out
@@ -25,7 +28,6 @@ public class BreathingActivity : Activity
             Console.WriteLine("Breath out...");
             ShowCountDown(6);
             Console.WriteLine("\n");
-
         }
         //Mensaje de salida.
         DisplayEndingMessage();

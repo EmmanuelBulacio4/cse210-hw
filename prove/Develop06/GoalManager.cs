@@ -19,6 +19,10 @@ public class GoalManager
 
     public void ListGoalNames()
     {
+        foreach (Goal goal in goals)
+        {
+            Console.WriteLine(goal.GetName());
+        }
         //aqui seguro que es hacer un loop foreach y llamar el metodo que me devuelva el nombre.
     }
 

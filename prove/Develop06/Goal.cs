@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 public class Goal
 {
     private string _shortName;
@@ -12,7 +13,24 @@ public class Goal
         _points = point;
     }
 
-    //Hacer tres GEtters para cada variable!
+    //Getters
+
+    public string GetName()
+    {
+        return _shortName;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public string GetPoint()
+    {
+        return _points;
+    }
+
+    //Hacer tres setters
 
     public void RecordEvent()
     {

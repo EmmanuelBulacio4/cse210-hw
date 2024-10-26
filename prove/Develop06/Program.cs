@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-         bool _loop = true;
+        bool _loop = true;
         while (_loop == true)
         {
             Console.WriteLine($"Please select one of the following choices: \n1. Create a New Goal\n2. List Goals\n3. Save Goals\n4. Load Goals\n5. Record Event\n6. Quit");
