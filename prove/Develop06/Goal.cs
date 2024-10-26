@@ -5,16 +5,17 @@ public class Goal
     protected string _shortName;
     protected string _description;
     protected string _points;
+    protected bool _completedGoal;
 
     public Goal()
     {
-        SetGoal();
     }
     public Goal(string name, string description, string point)
     {
         _shortName = name;
         _description = description;
         _points = point;
+        _completedGoal = false;
     }
 
     public void SetGoal()
@@ -26,6 +27,7 @@ public class Goal
         _description = Console.ReadLine();
         Console.WriteLine("How many point do you set to this goal? ");
         _points = Console.ReadLine();
+        _completedGoal = false;
         
     }
 
@@ -48,28 +50,19 @@ public class Goal
 
     public virtual void RecordEvent()
     {
-        if (isCompleted() == false) {
-            SetCompletedGoal();
-        } else {
-            Console.WriteLine("You have already completed this goal.");
-        }
     }
 
-    public virtual void SetCompletedGoal()
-    {
-    }
-
-    public virtual bool isCompleted()
+    public virtual bool IsCompleted()
     {
         return false;
     }
 
-    public virtual string GetDetailString()
+    public virtual string GetStringRepresentation()
     {
-        return "";
+        return $"{_shortName}, {_description}, {_points}";
     }
 
-    public virtual string GetStringRepresentation()
+    public virtual string SaveGoal()
     {
         return "";
     }
