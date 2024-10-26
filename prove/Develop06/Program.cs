@@ -13,15 +13,18 @@ class Program
             
             if (_election == 1) //Create New Goals
             {
-                
+                Console.WriteLine("Here you must write a new goal!\n");
+                List<Goal> goalsList = new List<Goal>();
+                Goal goal = new();
+                goalsList.Add(goal);
             }   
             else if (_election == 2) //List Goals
             {
-                
+                Console.WriteLine("Here you´ll see the list of goals!\n");
             }
             else if (_election == 3) //Save Goals
             {
-                
+                Console.WriteLine("Here you will save the list of goals.\n");
             }
             else if(_election == 4) //Load Goals
             {

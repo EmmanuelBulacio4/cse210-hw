@@ -11,7 +11,14 @@ public class CheckListGoal : Goal
         _bonus = bonus;
     }
 
-    //REcordEvent lo usa de la clase base
+    public void RecordEvent()
+    {
+        if (isCompleted() == false) {
+            _isCompleted = true;
+        } else {
+            Console.WriteLine("You have already completed this goal.");
+        }
+    }
 
     //isComplete lo usa de la clase base
 

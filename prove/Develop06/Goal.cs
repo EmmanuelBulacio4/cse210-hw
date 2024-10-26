@@ -2,15 +2,29 @@ using System;
 using System.Runtime.InteropServices;
 public class Goal
 {
-    private string _shortName;
-    private string _description;
-    private string _points;
+    protected string _shortName;
+    protected string _description;
+    protected string _points;
 
-    protected Goal(string name, string description, string point)
+    public Goal()
+    {
+        SetGoal();
+    }
+    public Goal(string name, string description, string point)
     {
         _shortName = name;
         _description = description;
         _points = point;
+    }
+
+    public void SetGoal()
+    {
+        Console.WriteLine("What is the name of your goal? ");
+        _shortName = Console.ReadLine();
+        Console.WriteLine("Write a short description: ");
+        _description = Console.ReadLine();
+        Console.WriteLine("How many point do you set to this goal? ");
+        _points = Console.ReadLine();
     }
 
     //Getters
@@ -30,15 +44,23 @@ public class Goal
         return _points;
     }
 
-    //Hacer tres setters
-
-    public void RecordEvent()
+    public virtual void RecordEvent()
     {
+        if (isCompleted() == false) {
+            SetCompltedGoal();
+        } else {
+            Console.WriteLine("You have already completed this goal.");
+        }
+    }
+
+    public void SetCompltedGoal()
+    {
+        
     }
 
     public bool isCompleted()
     {
-        return false; //El false solo va para que no me muestre error en lo que escribo los demas metodos.
+        return false;
     }
 
     public virtual string GetDetailString()

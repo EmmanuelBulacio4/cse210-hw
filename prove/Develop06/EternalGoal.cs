@@ -6,7 +6,10 @@ public class EternalGoal : Goal
         
     }
 
-    //RecordEvent() esta heredado
+    public override void RecordEvent()
+    {
+        Console.WriteLine("Eternal Goals can be mark as 'Completed'");
+    }
     //isCompleted() esta heredado
     //GetStringRepresentation() esta heredado
 }
