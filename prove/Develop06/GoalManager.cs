@@ -40,7 +40,24 @@ public class GoalManager
 
     public void SaveGoals()
     {
+        string fileName = "";
+        Console.Write("What is the filename? ");
+        fileName = Console.ReadLine();
 
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            int totalAGP = GetTotalPoints();
+            outputFile.WriteLine(totalAGP.ToString());
+            
+            foreach(Goal goal in goals)
+            {
+                outputFile.WriteLine(goal.SaveGoal());
+            }
+        }
+    }
+private int GetTotalPoints()
+    {
+        return _totalPoints;
     }
 
     public void LoadGoals()
