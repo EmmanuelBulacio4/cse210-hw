@@ -2,6 +2,7 @@ using System;
 public class GoalManager
 {
     private List<Goal> goals = new List<Goal>();
+    private int _totalPoints;
 
     GoalManager()
     {

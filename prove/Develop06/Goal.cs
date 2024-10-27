@@ -67,10 +67,15 @@ public class Goal
         return $"{_shortName}, {_description}, {_points}";
     }
 
-    public string SaveGoal()
+    public virtual string SaveGoal()
     {
         string lineToSave = "";
         lineToSave = $"{GetStringRepresentation()}, {IsCompleted().ToString()}";
         return lineToSave;
+    }
+
+    public virtual void ShowCheck()
+    {
+
     }
 }

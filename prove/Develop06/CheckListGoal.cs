@@ -13,27 +13,52 @@ public class CheckListGoal : Goal
         _bonus = bonus;
     }
 
-    public void ExtraGoal(string name, string point, int target, int amount, int bonus)
+    public void ExtraGoal(string name, int target, int amount, int bonus)
     {
-
+        _shortName = name;
+        _bonus = bonus;
+        _target = target;
+        _amountCompleted = amount;
     }
     
 
-    // public void RecordEvent()
-    // {
-    //     if (IsCompleted() == false) {
-    //         _completedGoal = true;
-    //     } else {
-    //         Console.WriteLine("You have already completed this goal.");
-    //     }
-    // }
+    public override void RecordEvent()
+    {
+        _amountCompleted ++;
+    }
 
-    //isComplete lo usa de la clase base
+    public override bool IsCompleted()
+    {
+        if (_amountCompleted == _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-    // public override string GetDetailString()
-    // {
-    //     return "";
-    // }
+    public override void ShowCheck()
+    {
+        GetDetailString();
+        //Console.WriteLine($"{GetStringRepresentation()} || Completed: {_amountCompleted}/{_target}");
+    }
 
-    //GetDetailsRepresentation tambien lo toma de la clase base.
+
+    public override string GetStringRepresentation()
+    {
+        return $"{_shortName}, {_points}";
+    }
+    public string GetDetailString()
+    {
+        return $"{GetStringRepresentation()} || Completed: {_amountCompleted}/{_target}";
+    }
+
+    public override string SaveGoal()
+    {
+        string lineToSave = "";
+        lineToSave = GetDetailString();
+        return lineToSave;
+    }
 }

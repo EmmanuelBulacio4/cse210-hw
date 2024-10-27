@@ -20,7 +20,7 @@ public class SimpleGoal : Goal
 
     //El RecordEvent lo hereda de la clase base. No declaro nada diferente aqui.
 
-    public void ShowCheck()
+    public override void ShowCheck()
     {
         string checkSymbol = "";
         bool _isCompleted = IsCompleted();
