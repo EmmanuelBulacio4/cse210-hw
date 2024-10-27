@@ -50,6 +50,11 @@ public class Goal
 
     public virtual void RecordEvent()
     {
+        if (_completedGoal == false) {
+            _completedGoal = true;
+        } else {
+            Console.WriteLine("You have already completed this goal.");
+        }
     }
 
     public virtual bool IsCompleted()
@@ -62,8 +67,10 @@ public class Goal
         return $"{_shortName}, {_description}, {_points}";
     }
 
-    public virtual string SaveGoal()
+    public string SaveGoal()
     {
-        return "";
+        string lineToSave = "";
+        lineToSave = $"{GetStringRepresentation()}, {IsCompleted().ToString()}";
+        return lineToSave;
     }
 }

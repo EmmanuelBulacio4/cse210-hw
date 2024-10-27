@@ -6,15 +6,6 @@ public class SimpleGoal : Goal
         _completedGoal = false;
     }
 
-    public override void RecordEvent()
-    {
-        if (_completedGoal == false) {
-            _completedGoal = true;
-        } else {
-            Console.WriteLine("You have already completed this goal.");
-        }
-    }
-
     public override bool IsCompleted()
     {
         if (_completedGoal == true)
@@ -26,6 +17,8 @@ public class SimpleGoal : Goal
             return false;
         }
     }
+
+    //El RecordEvent lo hereda de la clase base. No declaro nada diferente aqui.
 
     public void ShowCheck()
     {
@@ -40,12 +33,5 @@ public class SimpleGoal : Goal
             checkSymbol = " ";
         }
         Console.WriteLine($"[{checkSymbol}] {GetStringRepresentation()}");
-    }
-
-    public override string SaveGoal()
-    {
-        string lineToSave = "";
-        lineToSave = $"{GetStringRepresentation()}, {IsCompleted().ToString()}";
-        return lineToSave;
     }
 }
