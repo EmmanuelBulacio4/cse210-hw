@@ -1,22 +1,21 @@
 using System;
 public class GoalManager
 {
-    private List<Goal> _goals = new List<Goal>();
+    private List<Goal> _goals;
     private int _totalPoints = 0;
 
-    GoalManager()
+    public GoalManager()
     {
+        _goals = new List<Goal>();
     }
-
-    public void Start()
-    {
-        Goal goal = new();
-        goal.SetGoal();
-    }
-
     public void DisplayPlayerInfo()
     {
 
+    }
+
+    public void AddGoal(Goal goal)
+    {
+        _goals.Add(goal);
     }
 
 
@@ -31,7 +30,8 @@ public class GoalManager
     public void ListGoalDetails()
     {
         Console.WriteLine("The goals are:");
-        for (int i = 0; i < _goals.Count(); i++) {
+        for (int i = 0; i < _goals.Count; i++)
+        {
             Console.Write($"{i + 1}. ");
             _goals[i].GetStringRepresentation();
             Console.Write("\n");
@@ -93,5 +93,23 @@ private int GetTotalPoints()
             }
         }
 
+    }
+
+    public void ManagerRecordEvent()
+    {
+        string goalIndex = "";
+        Console.Write("Which goal did you accomplish? ");
+        goalIndex = Console.ReadLine();
+        int goalIndexInt = Convert.ToInt32(goalIndex) - 1;
+
+        if (_goals[goalIndexInt].IsCompleted() == false) {
+
+            _goals[goalIndexInt].RecordEvent();
+
+        } else {
+
+            Console.WriteLine("You have already completed this goal.");
+
+        }
     }
 }

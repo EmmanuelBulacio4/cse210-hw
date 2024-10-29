@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Goal> goalsList = new List<Goal>();
+        
         bool _loop = true;
         while (_loop == true)
         {
@@ -12,7 +12,7 @@ class Program
             Console.Write("What would you like to do? ");
             int _election = int.Parse(Console.ReadLine());
             
-            
+            GoalManager goalsList = new GoalManager();
             if (_election == 1) //Create New Goals
             {
                 Console.WriteLine("1. Simple Goal.\n2. Eternal Goal.\n3. Checklist Goal.");
@@ -21,20 +21,20 @@ class Program
                 {
                     SimpleGoal newSimple = new SimpleGoal();
                     newSimple.SetGoal();
-                    goalsList.Add(newSimple);
+                    goalsList.AddGoal(newSimple);
                 }
                 else if (kind == 2)
                 {
                     EternalGoal newEternal = new EternalGoal();
                     newEternal.SetGoal();
-                    goalsList.Add(newEternal);
+                    goalsList.AddGoal(newEternal);
                 }
 
                 else if (kind == 3)
                 {
                     CheckListGoal newCheck = new CheckListGoal();
                     newCheck.SetGoal();
-                    goalsList.Add(newCheck);
+                    goalsList.AddGoal(newCheck);
                 }
                 else
                 {
@@ -43,7 +43,7 @@ class Program
             }   
             else if (_election == 2) //List Goals
             {
-                goalsList.ListGoalDetails();
+                goalsList.ListGoalNames();
             }
             else if (_election == 3) //Save Goals
             {
@@ -51,12 +51,12 @@ class Program
             }
             else if(_election == 4) //Load Goals
             {
-                LoadGoals();
+                goalsList.LoadGoals();
             }
 
             else if(_election == 5) //Record Event
             {
-                
+                goalsList.ManagerRecordEvent();
             }
 
             else //Quit
