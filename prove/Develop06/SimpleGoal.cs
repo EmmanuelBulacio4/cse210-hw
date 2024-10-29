@@ -1,10 +1,14 @@
 using System;
 public class SimpleGoal : Goal
 {
-    SimpleGoal(string name, string description, string point) : base(name, description, point)
+    SimpleGoal(string name, string description, string point, bool iscompleted) : base(name, description, point)
     {
-        _completedGoal = false;
+        _shortName = name;
+        _description = description;
+        _points = point;
+        _completedGoal = iscompleted;
     }
+
 
     public override bool IsCompleted()
     {

@@ -8,6 +8,9 @@ public class CheckListGoal : Goal
 
     CheckListGoal(string name, string description, string point, int target, int amount, int bonus) : base(name, description, point)
     {
+        _shortName = name;
+        _description = description;
+        _points = point;
         _target = target;
         _amountCompleted = amount;
         _bonus = bonus;
