@@ -24,7 +24,7 @@ public class GoalManager
     {
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal.GetName());
+            Console.WriteLine($"{goal.GetName()}, {goal.GetDescription()}, {goal.GetPoint()}");
         }
     }
 
@@ -36,11 +36,6 @@ public class GoalManager
             _goals[i].GetStringRepresentation();
             Console.Write("\n");
         }
-    }
-
-    public void CreateGoal(Goal goal)
-    {
-        _goals.Add(goal);
     }
 
     public void SaveGoals()

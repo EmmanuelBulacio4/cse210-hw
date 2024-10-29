@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        List<Goal> goalsList = new List<Goal>();
         bool _loop = true;
         while (_loop == true)
         {
@@ -11,10 +12,9 @@ class Program
             Console.Write("What would you like to do? ");
             int _election = int.Parse(Console.ReadLine());
             
+            
             if (_election == 1) //Create New Goals
             {
-                List<Goal> goalsList = new List<Goal>();
-
                 Console.WriteLine("1. Simple Goal.\n2. Eternal Goal.\n3. Checklist Goal.");
                 int kind = int.Parse(Console.ReadLine());
                 if (kind == 1)
@@ -43,15 +43,15 @@ class Program
             }   
             else if (_election == 2) //List Goals
             {
-                Console.WriteLine("Here you´ll see the list of goals!\n");
+                goalsList.ListGoalDetails();
             }
             else if (_election == 3) //Save Goals
             {
-                Console.WriteLine("Here you will save the list of goals.\n");
+                goalsList.SaveGoals();
             }
             else if(_election == 4) //Load Goals
             {
-                
+                LoadGoals();
             }
 
             else if(_election == 5) //Record Event
