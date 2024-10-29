@@ -13,6 +13,11 @@ public class EternalGoal : Goal
         
     }
 
+    public override string GetStringRepresentation()
+    {
+        return $"EternalGoal: {GetName()}, {GetDescription()}, {GetPoint()}";
+    }
+
     public override void RecordEvent()
     {
         return ;

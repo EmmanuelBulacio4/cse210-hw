@@ -26,6 +26,11 @@ public class SimpleGoal : Goal
         }
     }
 
+    public  string GetStringRepresentation()
+    {
+        return $"{GetName()}, {GetDescription()}, {GetPoint()}";
+    }
+
     //El RecordEvent lo hereda de la clase base. No declaro nada diferente aqui.
 
     public override void ShowCheck()

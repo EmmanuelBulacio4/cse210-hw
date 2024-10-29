@@ -1,5 +1,5 @@
 using System;
-public class GoalManager
+public class GoalManager : Goal
 {
     private List<Goal> _goals;
     private int _totalPoints = 0;
@@ -8,32 +8,21 @@ public class GoalManager
     {
         _goals = new List<Goal>();
     }
-    public void DisplayPlayerInfo()
-    {
-
-    }
 
     public void AddGoal(Goal goal)
     {
         _goals.Add(goal);
+        Console.WriteLine($"Goal added succesfully.\n--{goal.GetName()} - {goal.GetDescription()} - {goal.GetPoint()}--\n");
+        //goal.GetStringRepresentation();
     }
 
-
-    public void ListGoalNames()
-    {
-        foreach (Goal goal in _goals)
-        {
-            goal.GetStringRepresentation();
-            //Console.WriteLine($"{goal.GetName()}, {goal.GetDescription()}, {goal.GetPoint()}");
-        }
-    }
 
     public void ListGoalDetails()
     {
         Console.WriteLine("The goals are:");
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal.GetStringRepresentation());
+            Console.WriteLine($"{goal.GetName} - {goal.GetDescription()} - {goal.GetPoint()}");
         }
     }
 

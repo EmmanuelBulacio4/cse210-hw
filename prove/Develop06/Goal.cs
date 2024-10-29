@@ -62,7 +62,7 @@ public class Goal
 
     public virtual string GetStringRepresentation()
     {
-        return $"{_shortName}, {_description}, {_points}";
+        return "";
     }
 
     public virtual string SaveGoal()

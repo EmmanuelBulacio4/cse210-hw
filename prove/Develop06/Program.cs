@@ -13,6 +13,7 @@ class Program
             int _election = int.Parse(Console.ReadLine());
             
             GoalManager goalsList = new GoalManager();
+            
             if (_election == 1) //Create New Goals
             {
                 Console.WriteLine("1. Simple Goal.\n2. Eternal Goal.\n3. Checklist Goal.");
@@ -56,7 +57,7 @@ class Program
 
             else if(_election == 5) //Record Event
             {
-                goalsList.ManagerRecordEvent();
+                goalsList.ManagerRecordEvent(); //Depende de poder mostrat la lista. Item 2!
             }
 
             else //Quit
