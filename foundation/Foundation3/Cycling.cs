@@ -1,9 +1,15 @@
 using System;
 public class Cycling : Activity
 {
-    private double _speed;
+    
 
     public Cycling()
     {
     }
+
+        public override string GetSumary()
+    {
+        return $"{GetDate()} Cycling ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetSpeed()}km/h, Pace: {GetPace()}min/km";
+    }
+
 }
