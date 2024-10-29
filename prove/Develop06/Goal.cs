@@ -4,13 +4,13 @@ public class Goal
 {
     protected string _shortName;
     protected string _description;
-    protected string _points;
+    protected int _points;
     protected bool _completedGoal;
 
     public Goal()
     {
     }
-    public Goal(string name, string description, string point)
+    public Goal(string name, string description, int point)
     {
         _shortName = name;
         _description = description;
@@ -26,7 +26,7 @@ public class Goal
         Console.WriteLine("Write a short description: ");
         _description = Console.ReadLine();
         Console.WriteLine("How many point do you set to this goal? ");
-        _points = Console.ReadLine();
+        _points = int.Parse(Console.ReadLine());
         _completedGoal = false;
         
     }
@@ -43,7 +43,7 @@ public class Goal
         return _description;
     }
 
-    public string GetPoint()
+    public int GetPoint()
     {
         return _points;
     }

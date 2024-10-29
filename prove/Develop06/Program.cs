@@ -32,7 +32,7 @@ class Program
 
             else if(_election == 5) //Record Event
             {
-
+                
             }
 
             else //Quit

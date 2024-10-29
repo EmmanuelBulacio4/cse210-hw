@@ -1,7 +1,7 @@
 using System;
 public class EternalGoal : Goal
 {
-    EternalGoal(string name, string description, string point)  : base(name, description, point)
+    public EternalGoal(string name, string description, int point)  : base(name, description, point)
     {
         _shortName = name;
         _description = description;

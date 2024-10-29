@@ -6,7 +6,7 @@ public class CheckListGoal : Goal
     private int _target;
     private int _bonus;
 
-    CheckListGoal(string name, string description, string point, int target, int amount, int bonus) : base(name, description, point)
+    public CheckListGoal(string name, string description, int point, int target, int amount, int bonus) : base(name, description, point)
     {
         _shortName = name;
         _description = description;
@@ -45,7 +45,6 @@ public class CheckListGoal : Goal
     public override void ShowCheck()
     {
         GetDetailString();
-        //Console.WriteLine($"{GetStringRepresentation()} || Completed: {_amountCompleted}/{_target}");
     }
 
 

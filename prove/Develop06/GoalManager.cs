@@ -26,17 +26,21 @@ public class GoalManager
         {
             Console.WriteLine(goal.GetName());
         }
-        //aqui seguro que es hacer un loop foreach y llamar el metodo que me devuelva el nombre.
     }
 
     public void ListGoalDetails()
     {
-
+        Console.WriteLine("The goals are:");
+        for (int i = 0; i < _goals.Count(); i++) {
+            Console.Write($"{i + 1}. ");
+            _goals[i].GetStringRepresentation();
+            Console.Write("\n");
+        }
     }
 
-    public void CreateGoal()
+    public void CreateGoal(Goal goal)
     {
-
+        _goals.Add(goal);
     }
 
     public void SaveGoals()
@@ -78,17 +82,17 @@ private int GetTotalPoints()
 
             if (parts[0] == "SimpleGoal") {
 
-                SimpleGoal simpleGoal = new SimpleGoal (parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
+                SimpleGoal simpleGoal = new(parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
                 _goals.Add(simpleGoal);             
 
             } else if (parts[0] == "EternalGoal") {
 
-                EternalGoal eternalGoal = new EternalGoal(GetName(), parts[2], Convert.ToInt32(parts[3]));
+                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], int.Parse((parts[3])));
                 _goals.Add(eternalGoal);
 
             } else if (parts[0] == "ChecklistGoal") {
                 
-                CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), Convert.ToInt32(parts[5]), Convert.ToInt32(parts[6]));
+                CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), Convert.ToInt32(parts[6]));
                 _goals.Add(checklistGoal);
 
             }
