@@ -17,9 +17,7 @@ public class CheckListGoal : Goal
     }
 
     public CheckListGoal()
-    {
-        
-    }
+    {}
 
     public override void SetGoal()
     {

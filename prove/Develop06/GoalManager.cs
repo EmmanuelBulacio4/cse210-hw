@@ -23,18 +23,17 @@ public class GoalManager
     {
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine($"{goal.GetName()}, {goal.GetDescription()}, {goal.GetPoint()}");
+            goal.GetStringRepresentation();
+            //Console.WriteLine($"{goal.GetName()}, {goal.GetDescription()}, {goal.GetPoint()}");
         }
     }
 
     public void ListGoalDetails()
     {
         Console.WriteLine("The goals are:");
-        for (int i = 0; i < _goals.Count; i++)
+        foreach (Goal goal in _goals)
         {
-            Console.Write($"{i + 1}. ");
-            _goals[i].GetStringRepresentation();
-            Console.Write("\n");
+            Console.WriteLine(goal.GetStringRepresentation());
         }
     }
 

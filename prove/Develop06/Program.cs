@@ -43,7 +43,7 @@ class Program
             }   
             else if (_election == 2) //List Goals
             {
-                goalsList.ListGoalNames();
+                goalsList.ListGoalDetails();
             }
             else if (_election == 3) //Save Goals
             {
