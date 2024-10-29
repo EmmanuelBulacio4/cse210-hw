@@ -18,9 +18,8 @@ public class Goal
         _completedGoal = false;
     }
 
-    public void SetGoal()
+    public virtual void SetGoal()
     {
-
         Console.WriteLine("What is the name of your goal? ");
         _shortName = Console.ReadLine();
         Console.WriteLine("Write a short description: ");
@@ -28,7 +27,6 @@ public class Goal
         Console.WriteLine("How many point do you set to this goal? ");
         _points = int.Parse(Console.ReadLine());
         _completedGoal = false;
-        
     }
 
     //Getters

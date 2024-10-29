@@ -92,7 +92,7 @@ private int GetTotalPoints()
 
             } else if (parts[0] == "ChecklistGoal") {
                 
-                CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), Convert.ToInt32(parts[6]));
+                CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
                 _goals.Add(checklistGoal);
 
             }

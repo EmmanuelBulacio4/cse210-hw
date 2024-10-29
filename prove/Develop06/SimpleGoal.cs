@@ -9,7 +9,11 @@ public class SimpleGoal : Goal
         _completedGoal = iscompleted;
     }
 
+    public SimpleGoal()
+    {
 
+    }
+    
     public override bool IsCompleted()
     {
         if (_completedGoal == true)

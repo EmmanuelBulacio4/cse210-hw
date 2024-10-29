@@ -8,6 +8,11 @@ public class EternalGoal : Goal
         _points = point;
     }
 
+    public EternalGoal()
+    {
+        
+    }
+
     public override void RecordEvent()
     {
         return ;

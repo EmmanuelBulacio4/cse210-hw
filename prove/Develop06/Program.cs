@@ -13,9 +13,33 @@ class Program
             
             if (_election == 1) //Create New Goals
             {
-                Console.WriteLine("Here you must write a new goal!\n");
                 List<Goal> goalsList = new List<Goal>();
-                
+
+                Console.WriteLine("1. Simple Goal.\n2. Eternal Goal.\n3. Checklist Goal.");
+                int kind = int.Parse(Console.ReadLine());
+                if (kind == 1)
+                {
+                    SimpleGoal newSimple = new SimpleGoal();
+                    newSimple.SetGoal();
+                    goalsList.Add(newSimple);
+                }
+                else if (kind == 2)
+                {
+                    EternalGoal newEternal = new EternalGoal();
+                    newEternal.SetGoal();
+                    goalsList.Add(newEternal);
+                }
+
+                else if (kind == 3)
+                {
+                    CheckListGoal newCheck = new CheckListGoal();
+                    newCheck.SetGoal();
+                    goalsList.Add(newCheck);
+                }
+                else
+                {
+                    Console.WriteLine("Please, enter a correct answer. Values among 1 - 3.");
+                }
             }   
             else if (_election == 2) //List Goals
             {

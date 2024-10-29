@@ -16,6 +16,25 @@ public class CheckListGoal : Goal
         _bonus = bonus;
     }
 
+    public CheckListGoal()
+    {
+        
+    }
+
+    public override void SetGoal()
+    {
+        Console.WriteLine("What is the name of your goal? ");
+        _shortName = Console.ReadLine();
+        Console.WriteLine("Write a short description: ");
+        _description = Console.ReadLine();
+        Console.WriteLine("How many point do you set to this goal? ");
+        _points = int.Parse(Console.ReadLine());
+        Console.WriteLine("How many steps you need to take to achive thius goal? ");
+        _target = int.Parse(Console.ReadLine());
+        _amountCompleted = 0;
+        _bonus = _points;
+    }
+
     public void ExtraGoal(string name, int target, int amount, int bonus)
     {
         _shortName = name;
