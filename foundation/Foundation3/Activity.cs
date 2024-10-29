@@ -1,1 +1,13 @@
-//Debo trackear la fecha y la duracion en minutos de la actividad
+using System;
+public class Activity
+{
+    private string _date;
+    private int _duration;
+    private double _pace;
+
+    public Activity() //Constructor
+    {
+    }
+
+    
+}
