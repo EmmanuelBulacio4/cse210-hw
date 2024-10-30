@@ -73,7 +73,7 @@ public class Activity
         return GetDuration()/GetDistance();
     }
 
-    public double GetActivityPace()
+    public virtual double GetActivityPace()
     {
         double activityPace = GetDuration()/GetSpeed();
         return activityPace;

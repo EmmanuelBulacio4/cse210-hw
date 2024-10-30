@@ -12,7 +12,7 @@ public class Swimming : Activity
         _laps = lap;
     }
 
-    public double GetActivityDistance()
+    public double GetSwimDistance()
     {
         double swimDistance = _laps*50/1000;
         return swimDistance;
@@ -20,12 +20,18 @@ public class Swimming : Activity
 
     public override double GetActivitySpeed()
     {
-        double swimSpeed = GetActivityDistance()/GetDuration();
+        double swimSpeed = GetSwimDistance()/GetDuration();
         return swimSpeed;
+    }
+
+        public override double GetActivityPace()
+    {
+        return GetDuration()/GetDistance();
     }
 
         public override void GetSumary()
     {
         Console.WriteLine($"{GetDate()} Swimming ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetSpeed()} km/h, Pace: {GetPace()} min/km");
     }
+
 }

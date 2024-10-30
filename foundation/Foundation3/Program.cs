@@ -17,7 +17,6 @@ class Program
         running.SetPace(runPace);
         activities.Add(running);
 
-        //running.GetSumary();
 
         Cycling cycling = new Cycling();
         cycling.SetDate(date);
@@ -29,10 +28,17 @@ class Program
         cycling.SetPace(bikePace);
         activities.Add(cycling);
 
-        //cycling.GetSumary();
-
         Swimming swimming = new Swimming();
-
+        swimming.SetDate(date);
+        swimming.SetDuration(50);
+        swimming.SetLaps(3);
+        double swimDistance = swimming.GetSwimDistance();
+        swimming.SetDistance(swimDistance);
+        double swimSpeed = swimming.GetActivitySpeed();
+        swimming.SetSpeed(swimSpeed);
+        double swimPace = swimming.GetActivityPace();
+        swimming.SetPace(swimPace);
+        activities.Add(swimming);
 
         //iterar por toda la lista activities y llamar al GetSummary()
         foreach (Activity activ in activities)
