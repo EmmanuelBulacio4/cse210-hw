@@ -13,8 +13,7 @@ public class Activity
     {
     }
 
-    //Agregar otro constructor..quizas
-
+    //Getters
     public string GetDate()
     {
         return _date;
@@ -40,21 +39,43 @@ public class Activity
         return _speed;
     }
 
-    public virtual string GetSumary()
+    //Setters
+    public void SetDate(string date)
     {
-        return "";
+        _date = date;
+    }
+
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+
+    public void SetDistance(double distance)
+    {
+        _distance = distance;
+    }
+
+    public void SetPace(double pace)
+    {
+        _pace = pace;
+    }
+
+    public void SetSpeed(double speed)
+    {
+        _speed = speed;
+    }
+    public virtual void GetSumary()
+    {
     }
 
     public virtual double GetActivitySpeed()
     {
-        double activitySpeed = (GetDistance()/GetDuration())*60;
-        return activitySpeed;
+        return GetDuration()/GetDistance();
     }
 
     public double GetActivityPace()
     {
-        double activityPace = 60/GetSpeed();
+        double activityPace = GetDuration()/GetSpeed();
         return activityPace;
-        //return _duration/_distance;
     }
 }

@@ -7,9 +7,8 @@ public class Cycling : Activity
     {
     }
 
-        public override string GetSumary()
+        public override void GetSumary()
     {
-        return $"{GetDate()} Cycling ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetSpeed()}km/h, Pace: {GetPace()}min/km";
+        Console.WriteLine($"{GetDate()} Cycling ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetPace()} km/h, Pace: {GetSpeed()} min/km");
     }
-
 }

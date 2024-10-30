@@ -7,13 +7,13 @@ public class Running : Activity
     }
 
 
-    public override string GetSumary()
+    public override void GetSumary()
     {
-        return $"{GetDate()} Running ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetSpeed()}km/h, Pace: {GetPace()}min/km";
+        Console.WriteLine($"{GetDate()} Running ({GetDuration()}min) - Distance {GetDistance()} kilometers, Speed {GetSpeed()} km/h, Pace: {GetPace()} min/km"); 
     }
 
-    public override double GetActivitySpeed()
-    {
-        return GetDuration()/GetDistance();
-    }
+    // public override double GetActivitySpeed()
+    // {
+    //     return GetDuration()/GetDistance();
+    // }
 }
