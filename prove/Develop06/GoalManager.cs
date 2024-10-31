@@ -22,7 +22,7 @@ public class GoalManager
         {
             Console.Write($"{i + 1}. ");
             Goal goal = _goals[i];
-            Console.WriteLine(goal.DetailsGoal());
+            goal.ListGoal();
         }
     }
 
@@ -90,7 +90,7 @@ public class GoalManager
         string goalIndex = "";
         Console.Write("Which goal did you accomplish? ");
         goalIndex = Console.ReadLine();
-        int goalIndexInt = Convert.ToInt32(goalIndex) - 1;
+        int goalIndexInt = int.Parse(goalIndex) - 1;
 
         if (_goals[goalIndexInt].IsCompleted() == false) {
 

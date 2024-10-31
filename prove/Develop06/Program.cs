@@ -48,6 +48,7 @@ class Program
             {
                 goalsList.ListGoal();
             }
+            
             else if (_election == 3) //Save Goals
             {
                 goalsList.SaveGoals();
