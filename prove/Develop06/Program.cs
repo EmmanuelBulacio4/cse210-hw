@@ -48,19 +48,19 @@ class Program
             {
                 goalsList.ListGoal();
             }
-            
+
             else if (_election == 3) //Save Goals
             {
                 goalsList.SaveGoals();
             }
             else if(_election == 4) //Load Goals
             {
-                //goalsList.LoadGoals();
+                goalsList.LoadGoals();
             }
 
             else if(_election == 5) //Record Event
             {
-                goalsList.ManagerRecordEvent(); //Depende de poder mostrat la lista. Item 2!
+                goalsList.ManagerRecordEvent();
             }
 
             else //Quit
