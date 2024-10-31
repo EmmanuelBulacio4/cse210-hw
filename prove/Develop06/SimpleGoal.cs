@@ -5,6 +5,15 @@ public class SimpleGoal : Goal
     {
     }
 
+    public SimpleGoal(string name, string description, int Points, bool status)  //Constructor for LoadGoal()
+    {
+        SetName(name);
+        SetDescription(description);
+        SetPoint(Points);
+        SetStatus(status);
+    }
+
+
     //SetGoal de la clase base esta implicito.
 
     public override void ListGoal()
@@ -19,6 +28,7 @@ public class SimpleGoal : Goal
         {
             checkSymbol = " ";
         }
+
         Console.WriteLine($"[{checkSymbol}] {DetailsGoal()}");
     }
 

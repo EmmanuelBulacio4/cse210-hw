@@ -7,6 +7,13 @@ public class EternalGoal : Goal
     {
     }
 
+    public EternalGoal(string name, string description, int Points)  //Constructor for LoadGoal()
+    {
+        SetName(name);
+        SetDescription(description);
+        SetPoint(Points);
+    }
+
     public override void SetGoal()
     {
         Console.WriteLine("What is the name of your goal? ");

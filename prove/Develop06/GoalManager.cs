@@ -67,7 +67,7 @@ public class GoalManager
 
             if (parts[0] == "SimpleGoal") {
 
-                Goal simpleGoal = new(parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
+                Goal simpleGoal = new SimpleGoal(parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
                 _goals.Add(simpleGoal);             
 
             } else if (parts[0] == "EternalGoal") {

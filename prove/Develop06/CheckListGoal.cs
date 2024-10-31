@@ -11,6 +11,16 @@ public class CheckListGoal : Goal
     {
     }
 
+    public CheckListGoal(string name, string description, int Points, int bonus, int target, int amountCompleted)
+    {
+        SetName(name);
+        SetDescription(description);
+        SetPoint(Points);
+        _bonus = bonus;
+        _target = target;
+        _amountCompleted = amountCompleted;
+    }
+
     public override void SetGoal()
     {
         Console.WriteLine("What is the name of your goal? ");
