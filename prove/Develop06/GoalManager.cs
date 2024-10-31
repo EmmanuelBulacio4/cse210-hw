@@ -22,14 +22,14 @@ public class GoalManager
         {
             Console.Write($"{i + 1}. ");
             Goal goal = _goals[i];
-            goal.DetailsGoal();
+            Console.WriteLine(goal.DetailsGoal());
         }
     }
 
     public void AddGoal(Goal goal)
     {
         _goals.Add(goal);
-        Console.WriteLine($"Goal added succesfully. Details: --{goal.GetName()} - ({goal.GetDescription()}) - {goal.GetPoint()}--\n");
+        Console.WriteLine($"\nGoal added succesfully. \n");
     }
 
     public void SaveGoals()

@@ -90,7 +90,8 @@ public class Goal
 
     public virtual string DetailsGoal()
     {
-        return $"{GetName()} - ({GetDescription()})";
+        string details = $"{GetName()} - ({GetDescription()})";
+        return details;
     }
 
     public virtual int TotalPoints()

@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        GoalManager goalsList = new GoalManager();
         
         bool _loop = true;
         while (_loop == true)
@@ -12,28 +13,28 @@ class Program
             Console.Write("What would you like to do? ");
             int _election = int.Parse(Console.ReadLine());
             
-            GoalManager goalsList = new GoalManager();
+            
             
             if (_election == 1) //Create New Goals
             {
-                Console.WriteLine("   1. Simple Goal.\n   2. Eternal Goal.\n   3. Checklist Goal.");
+                Console.WriteLine(" 1. Simple Goal.\n 2. Eternal Goal.\n 3. Checklist Goal.");
                 int kind = int.Parse(Console.ReadLine());
                 if (kind == 1)
                 {
-                    SimpleGoal newSimple = new SimpleGoal();
+                    Goal newSimple = new SimpleGoal();
                     newSimple.SetGoal();
                     goalsList.AddGoal(newSimple);
                 }
                 else if (kind == 2)
                 {
-                    EternalGoal newEternal = new EternalGoal();
+                    Goal newEternal = new EternalGoal();
                     newEternal.SetGoal();
                     goalsList.AddGoal(newEternal);
                 }
 
                 else if (kind == 3)
                 {
-                    CheckListGoal newCheck = new CheckListGoal();
+                    Goal newCheck = new CheckListGoal();
                     newCheck.SetGoal();
                     goalsList.AddGoal(newCheck);
                 }

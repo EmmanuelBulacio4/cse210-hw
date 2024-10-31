@@ -44,7 +44,8 @@ public class CheckListGoal : Goal
 
     public override string DetailsGoal()
     {
-        return $"{GetName()} - ({GetDescription()}) Currently completed: {_amountCompleted}/{_target}";
+        string details = $"{GetName()} - ({GetDescription()}) Currently completed: {_amountCompleted}/{_target}";
+        return details;
     }
 
     public override string SaveGoal()
