@@ -1,29 +1,35 @@
 using System;
-public class GoalManager : Goal
+public class GoalManager
 {
-    private List<Goal> _goals;
-    private int _totalPoints = 0;
+    private List<Goal> _goals = new List<Goal>();
+    private int _score = 0;
 
     public GoalManager()
     {
-        _goals = new List<Goal>();
+    }
+
+    public int CalculateScore()
+    {
+        int score = _score;
+        return score;
+    }
+
+    public void ListGoal()
+    {
+        Console.WriteLine("The goals are:");
+        
+        for (int i = 0; i < _goals.Count(); i++) 
+        {
+            Console.Write($"{i + 1}. ");
+            Goal goal = _goals[i];
+            goal.DetailsGoal();
+        }
     }
 
     public void AddGoal(Goal goal)
     {
         _goals.Add(goal);
-        Console.WriteLine($"Goal added succesfully.\n--{goal.GetName()} - {goal.GetDescription()} - {goal.GetPoint()}--\n");
-        //goal.GetStringRepresentation();
-    }
-
-
-    public void ListGoalDetails()
-    {
-        Console.WriteLine("The goals are:");
-        foreach (Goal goal in _goals)
-        {
-            Console.WriteLine($"{goal.GetName} - {goal.GetDescription()} - {goal.GetPoint()}");
-        }
+        Console.WriteLine($"Goal added succesfully. Details: --{goal.GetName()} - ({goal.GetDescription()}) - {goal.GetPoint()}--\n");
     }
 
     public void SaveGoals()
@@ -34,7 +40,7 @@ public class GoalManager : Goal
 
         using (StreamWriter saveToFile = new StreamWriter(fileName))
         {
-            int totalAGP = GetTotalPoints();
+            int totalAGP = CalculateScore();
             saveToFile.WriteLine(totalAGP.ToString());
             
             foreach(Goal goal in _goals)
@@ -43,45 +49,41 @@ public class GoalManager : Goal
             }
         }
     }
-private int GetTotalPoints()
-    {
-        return _totalPoints;
-    }
 
-    public void LoadGoals()
-    {
-        _goals.Clear(); 
+    // public void LoadGoals()
+    // {
+    //     _goals.Clear(); 
 
-        string fileName = "";
-        Console.Write("What is the filename? ");
-        fileName = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+    //     string fileName = "";
+    //     Console.Write("What is the filename? ");
+    //     fileName = Console.ReadLine();
+    //     string[] lines = System.IO.File.ReadAllLines(fileName);
 
-        _totalPoints = Convert.ToInt32(lines[0]);
+    //     _totalPoints = Convert.ToInt32(lines[0]);
 
-        for (int i = 1; i < lines.Count(); i++ )
-        {
-            string[] parts = lines[i].Split("|");
+    //     for (int i = 1; i < lines.Count(); i++ )
+    //     {
+    //         string[] parts = lines[i].Split("|");
 
-            if (parts[0] == "SimpleGoal") {
+    //         if (parts[0] == "SimpleGoal") {
 
-                SimpleGoal simpleGoal = new(parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
-                _goals.Add(simpleGoal);             
+    //             SimpleGoal simpleGoal = new(parts[1], parts[2], int.Parse(parts[3]), Convert.ToBoolean(parts[4]));
+    //             _goals.Add(simpleGoal);             
 
-            } else if (parts[0] == "EternalGoal") {
+    //         } else if (parts[0] == "EternalGoal") {
 
-                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], int.Parse((parts[3])));
-                _goals.Add(eternalGoal);
+    //             EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], int.Parse((parts[3])));
+    //             _goals.Add(eternalGoal);
 
-            } else if (parts[0] == "ChecklistGoal") {
+    //         } else if (parts[0] == "ChecklistGoal") {
                 
-                CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
-                _goals.Add(checklistGoal);
+    //             CheckListGoal checklistGoal = new CheckListGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
+    //             _goals.Add(checklistGoal);
 
-            }
-        }
+    //         }
+    //     }
 
-    }
+    //}
 
     public void ManagerRecordEvent()
     {
@@ -97,7 +99,6 @@ private int GetTotalPoints()
         } else {
 
             Console.WriteLine("You have already completed this goal.");
-
         }
     }
 }

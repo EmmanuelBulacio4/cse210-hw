@@ -16,7 +16,7 @@ class Program
             
             if (_election == 1) //Create New Goals
             {
-                Console.WriteLine("1. Simple Goal.\n2. Eternal Goal.\n3. Checklist Goal.");
+                Console.WriteLine("   1. Simple Goal.\n   2. Eternal Goal.\n   3. Checklist Goal.");
                 int kind = int.Parse(Console.ReadLine());
                 if (kind == 1)
                 {
@@ -41,10 +41,11 @@ class Program
                 {
                     Console.WriteLine("Please, enter a correct answer. Values among 1 - 3.");
                 }
-            }   
-            else if (_election == 2) //List Goals
+            }
+            
+            else if (_election == 2) //List Goals.
             {
-                goalsList.ListGoalDetails();
+                goalsList.ListGoal();
             }
             else if (_election == 3) //Save Goals
             {
@@ -52,7 +53,7 @@ class Program
             }
             else if(_election == 4) //Load Goals
             {
-                goalsList.LoadGoals();
+                //goalsList.LoadGoals();
             }
 
             else if(_election == 5) //Record Event

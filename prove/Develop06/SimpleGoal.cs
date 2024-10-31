@@ -1,39 +1,13 @@
 using System;
 public class SimpleGoal : Goal
 {
-    public SimpleGoal(string name, string description, int point, bool iscompleted)
-    {
-        _shortName = name;
-        _description = description;
-        _points = point;
-        _completedGoal = iscompleted;
-    }
-
     public SimpleGoal()
     {
-
-    }
-    
-    public override bool IsCompleted()
-    {
-        if (_completedGoal == true)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
     }
 
-    public override string GetStringRepresentation()
-    {
-        return $"SimpleGoal: {GetName()}, {GetDescription()}, {GetPoint()}";
-    }
+    //SetGoal de la clase base esta implicito.
 
-    //El RecordEvent lo hereda de la clase base. No declaro nada diferente aqui.
-
-    public override void ShowCheck()
+    public override void ListGoal()
     {
         string checkSymbol = "";
         bool _isCompleted = IsCompleted();
@@ -45,6 +19,44 @@ public class SimpleGoal : Goal
         {
             checkSymbol = " ";
         }
-        Console.WriteLine($"[{checkSymbol}] {GetStringRepresentation()}");
+        Console.WriteLine($"[{checkSymbol}] {DetailsGoal()}");
+    }
+
+    //DetailsGoal() esta implicito.
+
+    public override string SaveGoal()
+    {
+        string lineToSave = "";
+        lineToSave = $"{GetName()},{GetDescription()},{GetPoint()},{IsCompleted().ToString()}";
+        return lineToSave;
+    }
+
+    //El RecordEvent lo hereda de la clase base. No declaro nada diferente aqui.
+
+    public override bool  IsCompleted()
+    {
+        if (GetStatus() == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public override int TotalPoints()
+    {
+        bool status = IsCompleted();
+        int gCounter = 0;
+        if (status == true)
+        {
+            gCounter = GetPoint();
+        }
+        else
+        {
+            gCounter = 0;
+        }
+        return gCounter;
     }
 }

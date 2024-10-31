@@ -2,45 +2,57 @@ using System;
 using System.ComponentModel;
 public class CheckListGoal : Goal
 {
-    private int _amountCompleted;
-    private int _target;
-    private int _bonus;
+    private int _amountCompleted; //Es la cantidad de veces que cumplí con los pasos
+    private int _target; //Es la cantidad de veces que tengo que cumplir la meta para lograrla
+    private int _bonus; //la cantidad de puntos extras que recibo al completar la meta
 
-    public CheckListGoal(string name, string description, int point, int target, int amount, int bonus) : base(name, description, point)
-    {
-        _shortName = name;
-        _description = description;
-        _points = point;
-        _target = target;
-        _amountCompleted = amount;
-        _bonus = bonus;
-    }
 
     public CheckListGoal()
-    {}
+    {
+    }
 
     public override void SetGoal()
     {
         Console.WriteLine("What is the name of your goal? ");
-        _shortName = Console.ReadLine();
+        SetName(Console.ReadLine());
         Console.WriteLine("Write a short description: ");
-        _description = Console.ReadLine();
+        SetDescription(Console.ReadLine());
         Console.WriteLine("How many point do you set to this goal? ");
-        _points = int.Parse(Console.ReadLine());
-        Console.WriteLine("How many steps you need to take to achive thius goal? ");
+        SetPoint(int.Parse(Console.ReadLine()));
+        Console.WriteLine("How many steps you need to take to achive this goal? ");
         _target = int.Parse(Console.ReadLine());
         _amountCompleted = 0;
-        _bonus = _points;
+        Console.WriteLine("How many points as bonus you get after completed this goal? ");
+        _bonus = int.Parse(Console.ReadLine());
+        SetStatus(false);
     }
 
-    public void ExtraGoal(string name, int target, int amount, int bonus)
+    public override void ListGoal()
     {
-        _shortName = name;
-        _bonus = bonus;
-        _target = target;
-        _amountCompleted = amount;
+        string checkSymbol = "";
+        if(_amountCompleted < _target)
+        {
+            checkSymbol = "X";
+        }
+        else
+        {
+            checkSymbol = " ";
+        }
+
+        Console.WriteLine($"[{checkSymbol}] {DetailsGoal()}");
     }
-    
+
+    public override string DetailsGoal()
+    {
+        return $"{GetName()} - ({GetDescription()}) Currently completed: {_amountCompleted}/{_target}";
+    }
+
+    public override string SaveGoal()
+    {
+        string lineToSave;
+        lineToSave = $"{GetName()},{GetDescription()},{GetPoint()},{_bonus},{_target},{_amountCompleted}";
+        return lineToSave;
+    }
 
     public override void RecordEvent()
     {
@@ -59,25 +71,16 @@ public class CheckListGoal : Goal
         }
     }
 
-    public override void ShowCheck()
+    public override int TotalPoints()
     {
-        GetDetailString();
-    }
-
-
-    public override string GetStringRepresentation()
-    {
-        return $"Checklist{_shortName}, {_points}";
-    }
-    public string GetDetailString()
-    {
-        return $"{GetStringRepresentation()} || Completed: {_amountCompleted}/{_target}";
-    }
-
-    public override string SaveGoal()
-    {
-        string lineToSave = "";
-        lineToSave = GetDetailString();
-        return lineToSave;
+        int clPoints;
+        if  (_amountCompleted == _target)
+        {
+            clPoints = _target*GetPoint() + _bonus;
+        }
+        else{
+            clPoints = _amountCompleted * GetPoint();
+        }
+        return clPoints;
     }
 }

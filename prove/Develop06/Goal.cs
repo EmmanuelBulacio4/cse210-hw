@@ -2,38 +2,30 @@ using System;
 using System.Runtime.InteropServices;
 public class Goal
 {
-    protected string _shortName;
-    protected string _description;
-    protected int _points;
-    protected bool _completedGoal;
+    private string _name;
+    private string _description;
+    private int _points;
+    private bool _status;
 
     public Goal()
     {
-    }
-    public Goal(string name, string description, int point)
-    {
-        _shortName = name;
-        _description = description;
-        _points = point;
-        _completedGoal = false;
     }
 
     public virtual void SetGoal()
     {
         Console.WriteLine("What is the name of your goal? ");
-        _shortName = Console.ReadLine();
+        _name = Console.ReadLine();
         Console.WriteLine("Write a short description: ");
         _description = Console.ReadLine();
         Console.WriteLine("How many point do you set to this goal? ");
         _points = int.Parse(Console.ReadLine());
-        _completedGoal = false;
+        _status = false;
     }
 
     //Getters
-
     public string GetName()
     {
-        return _shortName;
+        return _name;
     }
 
     public string GetDescription()
@@ -46,34 +38,63 @@ public class Goal
         return _points;
     }
 
+    public bool GetStatus()
+    {
+        return _status;
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
+
+    public void SetPoint(int points)
+    {
+        _points = points;
+    }
+
+    public void SetStatus(bool status)
+    {
+        _status = status;
+    }
+
     public virtual void RecordEvent()
     {
-        if (_completedGoal == false) {
-            _completedGoal = true;
+        if (_status == false) {
+            _status = true;
         } else {
             Console.WriteLine("You have already completed this goal.");
         }
     }
 
-    public virtual bool IsCompleted()
+    public virtual bool IsCompleted() //Me verifica si la meta esta lograda o no.
     {
         return false;
-    }
-
-    public virtual string GetStringRepresentation()
-    {
-        return "";
     }
 
     public virtual string SaveGoal()
     {
         string lineToSave = "";
-        lineToSave = $"{GetStringRepresentation()}, {IsCompleted().ToString()}";
         return lineToSave;
     }
-
-    public virtual void ShowCheck()
+    public virtual void ListGoal() //debe mostrar el check de la meta. Luego llama a la DetailsGoal()
     {
-
+        //Aqui marco si la meta esta cumplida. y 
+        //los pasos completados.
     }
+
+    public virtual string DetailsGoal()
+    {
+        return $"{GetName()} - ({GetDescription()})";
+    }
+
+    public virtual int TotalPoints()
+    {
+        return 0; //Debe cambiar en todas las otras clases.
+    } 
 }
