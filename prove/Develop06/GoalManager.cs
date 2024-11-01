@@ -11,6 +11,8 @@ public class GoalManager
     public int CalculateScore()
     {
         int score = _score;
+        
+        
         return score;
     }
 

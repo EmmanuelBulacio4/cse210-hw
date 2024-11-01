@@ -13,8 +13,6 @@ class Program
             Console.Write("What would you like to do? ");
             int _election = int.Parse(Console.ReadLine());
             
-            
-            
             if (_election == 1) //Create New Goals
             {
                 Console.WriteLine(" 1. Simple Goal.\n 2. Eternal Goal.\n 3. Checklist Goal.");
